@@ -47,36 +47,33 @@
 
     let image = document.createElement("img");
     image.src = earbudInfo.image;
-    image.classList.add("earbudImage")
+    image.classList.add("earbudImages")
 
-    // console.log(selected);
-    //   console.log(earbudInfo.text);
-
-      selected.appendChild(earbudText);
-      selected.appendChild(image);
-      earbud.appendChild(selected);
+    selected.appendChild(earbudText);
+    selected.appendChild(image);
+    earbud.appendChild(selected);
     })  
   }
 
   loadInfo();
 
-  // function showInfo() {
-  //   let selected = document.querySelector('.HotspotAnnotation');
-  //   gsap.to(selected, 1, { autoAlpha: 1});
-  // }
+  function showInfo() {
+    let selected = document.querySelector('.HotspotAnnotation');
+    gsap.to(selected, 1, { autoAlpha: 1});
+  }
 
-  // function hideInfo() {
-  //   let selected = document.querySelector('.HotspotAnnotation');
-  //   gsap.to(selected, 1, { autoAlpha: 0 });
-  // }
+  function hideInfo() {
+    let selected = document.querySelector('.HotspotAnnotation');
+    gsap.to(selected, 1, { autoAlpha: 0 });
+  }
 
   //Event Listener
   earbud.addEventListener("load", earbudLoaded);
 
 
   hotspots.forEach(hotspot => {
-    selected.addEventListener("mouseover", showInfo);
-    selected.addEventListener("mouseout", hideInfo);
+    hotspot.addEventListener("mouseover", showInfo);
+    hotspot.addEventListener("mouseout", hideInfo);
   });
 })();
 
