@@ -51,7 +51,6 @@
 
     selected.appendChild(earbudText);
     selected.appendChild(image);
-    earbud.appendChild(selected);
     })  
   }
 
