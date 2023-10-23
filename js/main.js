@@ -2,7 +2,7 @@
   const earbud = document.querySelector("#earbud");
   const hotspots = document.querySelectorAll(".Hotspot");
 
- let earbudInfo = [
+ const earbudInfo = [
     { 
       text: "Sensitive touch for control and 360 Audio",
       image: "images/copperinsulation.jpg"
@@ -55,29 +55,28 @@
       selected.appendChild(earbudText);
       selected.appendChild(image);
       earbud.appendChild(selected);
-
     })  
   }
 
   loadInfo();
 
-  function showInfo() {
-    let selected = document.querySelector('.HotspotAnnotation');
-    gsap.to(selected, 1, { autoAlpha: 1});
-  }
+  // function showInfo() {
+  //   let selected = document.querySelector('.HotspotAnnotation');
+  //   gsap.to(selected, 1, { autoAlpha: 1});
+  // }
 
-  function hideInfo() {
-    let selected = document.querySelector('.HotspotAnnotation');
-    gsap.to(selected, 1, { autoAlpha: 0 });
-  }
+  // function hideInfo() {
+  //   let selected = document.querySelector('.HotspotAnnotation');
+  //   gsap.to(selected, 1, { autoAlpha: 0 });
+  // }
 
   //Event Listener
-  // earbud.addEventListener("load", earbudLoaded);
-  earbudLoaded();
+  earbud.addEventListener("load", earbudLoaded);
+
 
   hotspots.forEach(hotspot => {
-    hotspot.addEventListener("mouseover", showInfo);
-    hotspot.addEventListener("mouseout", hideInfo);
+    selected.addEventListener("mouseover", showInfo);
+    selected.addEventListener("mouseout", hideInfo);
   });
 })();
 
