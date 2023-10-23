@@ -1,62 +1,81 @@
 (() => {
-  //console.log("IIFE Fired");
-  //variables
-  const model = document.querySelector("#model");
+  const earbud = document.querySelector("#earbud");
   const hotspots = document.querySelectorAll(".Hotspot");
 
-  const infoBoxes = [
+ let earbudInfo = [
     { 
-      title: "Noise-cancelling microphones",
-      text: "Noise-cancelling microphones and a rear copper shield are optimally placed to quickly detect outside noises, working together to counter noise before it disturbs your experience",
+      text: "Sensitive touch for control and 360 Audio",
       image: "images/copperinsulation.jpg"
-    }
+    },
+    { 
+      text: "Sensitive touch for control and 360 Audio",
+      image: "images/copperinsulation.jpg"
+    },
+    { 
+      text: "Sensitive touch for control and 360 Audio",
+      image: "images/copperinsulation.jpg"
+    },
+    { 
+      text: "Sensitive touch for control and 360 Audio",
+      image: "images/copperinsulation.jpg"
+    },
+    { 
+      text: "Sensitive touch for control and 360 Audio",
+      image: "images/copperinsulation.jpg"
+    },
+
+    { 
+      text: "Sensitive touch for control and 360 Audio",
+      image: "images/copperinsulation.jpg"
+    },
   ];
 
-  //functions
-  function modelLoaded() {
-    //console.log(hotspots);
+  //Function
+
+  function earbudLoaded() {
     hotspots.forEach(hotspot => {
       hotspot.style.display = "block";
     });
   }
 
   function loadInfo() {
-    infoBoxes.forEach((infoBox, index)=>{
-    let selected = document.querySelector(`#hotspot-${index+1}`);
-       //document.createElement('h2');
-       //.textContent = infoBox.title
-      //document.createElement('p');
-      //.textContent = infoBox.text;
-      console.log(selected);
-      console.log(infoBox.title);
-      console.log(infoBox.text);
+    earbudInfo.forEach((earbudInfo, index) => {
+    let selected = document.querySelector(`#earbudInfo-${index + 2}`);
 
-      //selected.appendChild();
-      //selected.appendChild();
+    let earbudText = document.createElement("h3");
+    earbudText.textContent = earbudInfo.text;
+
+    let image = document.createElement("img");
+    image.src = earbudInfo.image;
+    image.classList.add("earbudImage")
+
+    // console.log(selected);
+    //   console.log(earbudInfo.text);
+
+      selected.appendChild(earbudText);
+      selected.appendChild(image);
+      earbud.appendChild(selected);
 
     })  
   }
+
   loadInfo();
 
   function showInfo() {
-    //console.log(this.slot);
-    //console.log(`#${this.slot}`);
-    //since the slot value matches the id value I can use the slot value as a selector to get to the div I want.
-    let selected = document.querySelector(`#${this.slot}`);
-    gsap.to(selected, 1, { autoAlpha: 1 });
+    let selected = document.querySelector('.HotspotAnnotation');
+    gsap.to(selected, 1, { autoAlpha: 1});
   }
 
   function hideInfo() {
-    //console.log(this.slot);
-    //console.log(`#${this.slot}`);
-    let selected = document.querySelector(`#${this.slot}`);
+    let selected = document.querySelector('.HotspotAnnotation');
     gsap.to(selected, 1, { autoAlpha: 0 });
   }
 
   //Event Listener
-  model.addEventListener("load", modelLoaded);
+  // earbud.addEventListener("load", earbudLoaded);
+  earbudLoaded();
 
-  hotspots.forEach(function (hotspot) {
+  hotspots.forEach(hotspot => {
     hotspot.addEventListener("mouseover", showInfo);
     hotspot.addEventListener("mouseout", hideInfo);
   });
