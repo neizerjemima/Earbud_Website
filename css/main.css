@@ -139,7 +139,6 @@ model-viewer > #ar-prompt > img {
 
 #burger-con {
   display: none;
-  position: absolute;
   background-color: #fff;
 }
 
