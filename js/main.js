@@ -86,22 +86,22 @@
 
 //This for the hamburger menu
 
-// (() => {
-//   (function () {
-//       "use strict";
-//       console.log("fired");
+(() => {
+  (function () {
+      "use strict";
+      console.log("fired");
   
 
-//       let button = document.querySelector("#button");
-//       let burgerMenu = document.querySelector("#burger-con");
+      let button = document.querySelector("#button");
+      let burgerMenu = document.querySelector("#burger-con");
 
-//       function hamburgerMenu() {
-//           burgerMenu.classList.toggle("slide-toggle");
-//           button.classList.toggle("expanded");
-//       }
+      function hamburgerMenu() {
+          burgerMenu.classList.toggle("slide-toggle");
+          button.classList.toggle("expanded");
+      }
 
-//       button.addEventListener("click", hamburgerMenu, false);
-//   })();
-// })();
+      button.addEventListener("click", hamburgerMenu, false);
+  })();
+})();
 
 // In this version, the event listeners use regular functions instead of arrow functions, so the "this" keyword inside the event listeners will refer to the DOM element that triggered the event.
