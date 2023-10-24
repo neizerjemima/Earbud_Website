@@ -4,30 +4,31 @@
 
  const earbudInfo = [
     { 
-      text: "Sensitive touch for control and 360 Audio",
-      image: "images/battery.svg"
+      text: "Sensitive touch for control and an intelligent 360 Audio. The 360 uses enhanced head tracking making every movement stay in sync. The sound feels more realistic",
+      image: "images/touch-id.svg"
     },
+
     { 
-      text: "Sensitive touch for control and 360 Audio",
-      image: "images/battery.svg"
-    },
-    { 
-      text: "Sensitive touch for control and 360 Audio",
-      image: "images/battery.svg" 
-    },
-    { 
-      text: "Sensitive touch for control and 360 Audio",
-      image: "images/battery.svg"
-    },
-    { 
-      text: "Sensitive touch for control and 360 Audio",
+      text: "Fast Charging - Get up to 8 hours of continuous playtime with ANC on and up to 20 hours in the cradle",
       image: "images/battery.svg"
     },
 
     { 
-      text: "Fast Charging - Get up to 8 hours of Playtime",
-      image: "images/battery.svg"
+      text: "Made to feel as good as they sound, with a silicone rubber and cushion plug that molds to your ears",
+      image: "images/comfortable-fit.svg"
     },
+    
+    { 
+      text: "Enjoy a  comfortable fit crafted to sit comfortably in your ears - just twist and push options included to get the right fit",
+      image: "images/fit.svg"
+    },
+
+    { 
+      text: "Audio is crisp and clear across all levels with the earbuds getting nicee and loud at top end. Yajbuds ticks every box.",
+      image: "images/sound.svg"
+    },   
+
+    
   ];
 
   //Function
