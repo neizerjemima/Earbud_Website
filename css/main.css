@@ -2,15 +2,15 @@ model-viewer {
   width: auto;
   max-width: 1200px;
   height: 700px;
-  background-color: #d5acac;
+  background-color: #e4bbbb;
   margin: 0 auto;
 }
 
 .Hotspot {
   background: url(../images/hotspot.svg) center no-repeat;
   border: 0px;
-  width: 45px;
-  height: 45px;
+  width: 25px;
+  height: 25px;
   display: none;
   transition: all 1s ease-in-out;
 }
@@ -36,6 +36,7 @@ model-viewer {
   padding: 0.5em 1em;
   position: absolute;
   top: 50%;
+  width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
   text-align: left;
@@ -79,12 +80,29 @@ model-viewer {
   outline: 1px solid #4285f4;
 }
 
+@-webkit-keyframes circle {
+  from {
+    transform: translateX(-50%) rotate(0deg) translateX(50px) rotate(0deg);
+  }
+  to {
+    transform: translateX(-50%) rotate(360deg) translateX(50px) rotate(-360deg);
+  }
+}
+
 @keyframes circle {
   from {
     transform: translateX(-50%) rotate(0deg) translateX(50px) rotate(0deg);
   }
   to {
     transform: translateX(-50%) rotate(360deg) translateX(50px) rotate(-360deg);
+  }
+}
+@-webkit-keyframes elongate {
+  from {
+    transform: translateX(100px);
+  }
+  to {
+    transform: translateX(-100px);
   }
 }
 @keyframes elongate {
@@ -99,7 +117,8 @@ model-viewer > #ar-prompt {
   position: absolute;
   left: 50%;
   bottom: 60px;
-  animation: elongate 2s infinite ease-in-out alternate;
+  -webkit-animation: elongate 2s infinite ease-in-out alternate;
+          animation: elongate 2s infinite ease-in-out alternate;
   display: none;
 }
 
@@ -108,7 +127,12 @@ model-viewer[ar-status=session-started] > #ar-prompt {
 }
 
 model-viewer > #ar-prompt > img {
-  animation: circle 4s linear infinite;
+  -webkit-animation: circle 4s linear infinite;
+          animation: circle 4s linear infinite;
+}
+
+:not(:defined) > * {
+  display: none;
 }
 
 #about-us {

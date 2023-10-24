@@ -5,28 +5,28 @@
  const earbudInfo = [
     { 
       text: "Sensitive touch for control and 360 Audio",
-      image: "images/copperinsulation.jpg"
+      image: "images/battery.svg"
     },
     { 
       text: "Sensitive touch for control and 360 Audio",
-      image: "images/copperinsulation.jpg"
+      image: "images/battery.svg"
     },
     { 
       text: "Sensitive touch for control and 360 Audio",
-      image: "images/copperinsulation.jpg"
+      image: "images/battery.svg" 
     },
     { 
       text: "Sensitive touch for control and 360 Audio",
-      image: "images/copperinsulation.jpg"
+      image: "images/battery.svg"
     },
     { 
       text: "Sensitive touch for control and 360 Audio",
-      image: "images/copperinsulation.jpg"
+      image: "images/battery.svg"
     },
 
     { 
-      text: "Sensitive touch for control and 360 Audio",
-      image: "images/copperinsulation.jpg"
+      text: "Fast Charging - Get up to 8 hours of Playtime",
+      image: "images/battery.svg"
     },
   ];
 
@@ -36,41 +36,48 @@
     hotspots.forEach(hotspot => {
       hotspot.style.display = "block";
     });
+
+    loadearbudInfo();
   }
 
-  function loadInfo() {
-    earbudInfo.forEach((earbudInfo, index) => {
-    let selected = document.querySelector(`#earbudInfo-${index + 2}`);
+  function loadearbudInfo() {
+    earbudInfo.forEach((_earbudinfo, index) => {
+      let selectedHotspot = document.querySelector (`#hotspot-${index + 2}`);
 
-    let earbudText = document.createElement("h3");
-    earbudText.textContent = earbudInfo.text;
+      let earbudText = document.createElement("h3");
+      earbudText.textContent = _earbudinfo.text;
+      
+      let earbudimage = document.createElement("img");
+      earbudimage.src = _earbudinfo.image;
+      earbudimage.classList.add("earbudImages");
 
-    let image = document.createElement("img");
-    image.src = earbudInfo.image;
-    image.classList.add("earbudImages")
+      selectedHotspot.appendChild(earbudText);
+      selectedHotspot.appendChild(earbudimage);
+    });
 
-    selected.appendChild(earbudText);
-    selected.appendChild(image);
-    })  
+    
   }
 
-  loadInfo();
 
-  function showInfo() {
-    let selected = document.querySelector('.HotspotAnnotation');
-    gsap.to(selected, 1, { autoAlpha: 1});
+
+
+  function showInfo(e) {
+    let selected = document.querySelector(`button[slot="${e.currentTarget.slot}"] > div`);
+    gsap.to(selected, 1, { autoAlpha:1});
+    console.log ("Mouse enter")
   }
 
-  function hideInfo() {
-    let selected = document.querySelector('.HotspotAnnotation');
-    gsap.to(selected, 1, { autoAlpha: 0 });
+  function hideInfo(e) {
+    let selected = document.querySelector(`button[slot="${e.currentTarget.slot}"] > div`);
+    gsap.to(selected, 1, { autoAlpha:0});
+    console.log ("Mouse left")
   }
 
   //Event Listener
   earbud.addEventListener("load", earbudLoaded);
 
 
-  hotspots.forEach(hotspot => {
+  hotspots.forEach((hotspot) => {
     hotspot.addEventListener("mouseover", showInfo);
     hotspot.addEventListener("mouseout", hideInfo);
   });
